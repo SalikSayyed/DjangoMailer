@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{%load crispy_forms_tags %}
+{% block content %}
+<h1 style="align-content: center;align-items: center;text-align: center;">Welcome to Mailer!</h1>
+<h3 style="align-content: center;align-items: center;text-align: center;text-decoration-style: wavy;">Communicate Easily
+</h3>
+<form method='post' enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 min-vh-100 d-flex flex-column justify-content-center">
+                <div class="row">
+                    <div class="col-lg-6 col-md-8 mx-auto">
+
+                        <!-- form card login -->
+                        <div class="card rounded shadow shadow-sm">
+                            <div class="card-header">
+                                <h3 class="mb-0">Register on Mailer</h3>
+                            </div>
+                            <div class="card-body">
+                                {% csrf_token %}
+                                <div>
+                                    {{form|crispy}}
+                                </div>
+                                <button type='submit' value='Save'
+                                    style="background-image: linear-gradient(red, yellow);">Submit</button>
+                            </div>
+                            <!--/card-block-->
+                        </div>
+                        <!-- /form card login -->
+
+                    </div>
+
+
+                </div>
+                <!--/row-->
+
+            </div>
+            <!--/col-->
+        </div>
+        <!--/row-->
+    </div>
+    <!--/container-->
+
+</form>
+{% endblock %}

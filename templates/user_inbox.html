@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% block content %}
+<style>
+    div.scroll {
+        margin: auto;
+        padding: 4px;
+        width: 900px;
+        height: 500px;
+        align-items: center;
+        align-content: center;
+        border-radius: 10px;
+        border-color: chartreuse;
+        overflow-x: hidden;
+        overflow-y: auto;
+        text-align: justify;
+    }
+</style>
+<hr>
+<h1 style="align-items: center;align-content: center;">Logged In! Welcome Aboard </h1>
+<h2></h2>
+<div class="scroll">
+    <h3>Sent in Inbox</h3>
+    {%for ns in mail_sent %}
+    <hr>
+    <hr>
+    <div class="mail_sent">
+        <h6>Sent to : {{ns.mail_receiver}}</h6>
+        <h5>Subject : {{ns.mail_subject}}</h5>
+        <h4>Body : {{ns.mail_body}}</h4>
+    </div>
+    {% endfor %}
+</div>
+<div class="scroll">
+    <h3>Received in Inbox</h3>
+    {%for mails in mail_received %}
+    <hr>
+    <hr>
+    <div class="mail_received">
+        <h6>Mail Sender : {{mails.mail_sender}}</h6>
+        <h5>Subejct : {{mails.mail_subject}}</h5>
+        <h4>Body : {{mails.mail_body}}</h4>
+    </div>
+    {% endfor %}
+</div>
+<button><a href="/mailsender">Write Email</a></button>
+{% endblock %}

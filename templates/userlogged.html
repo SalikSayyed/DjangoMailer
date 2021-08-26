@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{%load crispy_forms_tags %}
+{% block content %}
+
+<hr>
+<h1 style="align-items:center;align-content: center;text-align: center;"> Write to Someone with ease!</h1>
+<h3 style="align-items:center;align-content: center;text-align: center;"> Logged in as : <span
+        style="color:aquamarine">{{email}}</span></h3>
+<form method='post' enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 min-vh-100 d-flex flex-column justify-content-center">
+                <div class="row">
+                    <div class="col-lg-6 col-md-8 mx-auto">
+
+                        <!-- form card login -->
+                        <div class="card rounded shadow shadow-sm">
+                            <div class="card-header">
+                                <h3 class="mb-0">Mail Content</h3>
+                            </div>
+                            <div class="card-body">
+                                {% csrf_token %}
+                                <div>
+                                    {{form|crispy}}
+                                </div>
+                                <button type='submit' value='Save'>Submit</button>
+                            </div>
+                            <!--/card-block-->
+                        </div>
+                        <!-- /form card login -->
+
+                    </div>
+
+
+                </div>
+                <!--/row-->
+
+            </div>
+            <!--/col-->
+        </div>
+        <!--/row-->
+    </div>
+    <!--/container-->
+
+</form>
+
+{% endblock %}
